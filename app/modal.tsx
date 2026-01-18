@@ -1,8 +1,11 @@
 
-import Tapbar from '@/components/Tapbar';
+import { View } from 'react-native';
+
 
 export default function ModalScreen() {
   return (
-    <Tapbar />
+    <View>
+      
+    </View>
   );
 }

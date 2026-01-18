@@ -2,7 +2,7 @@
 import ButtonWithIcon from "@/components/ui/ButtonWithIcon";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-export default function Settings()
+export default function Location()
 {
     const profile = `<svg width="800px" height="800px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 
@@ -29,25 +29,25 @@ export default function Settings()
 
     return(
         <ScrollView>
-        <View style={{width: '100%', height: '100%',  display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <View style={{width: '100%', height: 100, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', top: 0}}>
-                            <View style={{width: '90%', height: 50, display: 'flex',justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-                                <View style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
-                                    <Text style={{fontSize: 15, fontWeight: 'bold'}}>SAFEVPN</Text>
+                <View style={{width: '100%', height: '100%',  display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{width: '100%', height: 100, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', top: 0}}>
+                                    <View style={{width: '90%', height: 50, display: 'flex',justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+                                        <View style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
+                                            <Text style={{fontSize: 15, fontWeight: 'bold'}}>SAFEVPN</Text>
+                                        </View>
+                                        <View style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-end'}}>
+                                        </View>
+                                    </View>
                                 </View>
-                                <View style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-end'}}>
-                                </View>
-                            </View>
-                        </View>
-            <View style={{width: '90%', height: '70%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', paddingTop: 10, gap: 1}}>
-                <ButtonWithIcon icon={profile} title="Profile"/>
-                <View style={{width: '110%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
-                <ButtonWithIcon icon={language} title="Language"/>
-                <View style={{width: '110%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
-                <ButtonWithIcon icon={subscription} title="Subscription"/>
-                <View style={{width: '110%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
-            </View>
-        </View>
-        </ScrollView>
+                    <View style={{width: '90%', height: '70%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', paddingTop: 10, gap: 1}}>
+                        <ButtonWithIcon icon={profile} title="Profile"/>
+                        <View style={{width: '110%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
+                        <ButtonWithIcon icon={language} title="Language"/>
+                        <View style={{width: '110%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
+                        <ButtonWithIcon icon={subscription} title="Subscription"/>
+                        <View style={{width: '110%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
+                    </View>
+                </View>
+                </ScrollView>
     );
 }

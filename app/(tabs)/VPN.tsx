@@ -1,16 +1,32 @@
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 import LottieView from "lottie-react-native";
+import { SvgXml } from "react-native-svg";
 
-export default function Control()
+export default function VPN()
 {
+    const history = `<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8V12L15 15" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="#000000" stroke-width="2"/>
+                    </svg>`;
+
     return(
         <View style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <View style={{position: 'absolute',width: '100%', height: '20%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', top: 0, zIndex: 1}}>
+            <View style={{position: 'absolute', width: '100%', height: 100, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', top: 0}}>
+                <View style={{width: '90%', height: 50, display: 'flex',justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+                    <View style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
+                        <Text style={{fontSize: 15, fontWeight: 'bold'}}>SAFEVPN</Text>
+                    </View>
+                    <View style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-end'}}>
+                        <SvgXml xml={history} width="20%" height="100%"/>
+                    </View>
+                </View>
+            </View>
+            <View style={{position: 'absolute',width: '100%', height: '20%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', top: 80, zIndex: 1}}>
                 <Text style={{fontSize: 25, fontWeight: 'bold'}}>Fastest Location</Text>
                 <Text style={{fontSize:  40, fontWeight: 'bold', color: 'green'}}>Niderlands</Text>
             </View>
-            <ImageBackground source={require('./world.png')} resizeMode="cover" style={{position: 'fixed', width: '100%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: 1, bottom: 50}}>
+            <ImageBackground source={require('./world.png')} resizeMode="cover" style={{position: 'fixed', width: '100%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: 1}}>
                 <LottieView
                     source={require("./connection.json")}
                     style={{width: "50%", height: "50%", marginBottom: 'auto'}}
