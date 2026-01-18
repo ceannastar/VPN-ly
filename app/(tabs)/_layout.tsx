@@ -2,6 +2,7 @@ import Tapbar from "@/components/Tapbar";
 import { Tabs } from "expo-router";
 
 export default function TabLayout() {
+
     return (
         <Tabs tabBar={props=> <Tapbar {...props}/>} screenOptions={{ tabBarActiveTintColor: 'blue', headerShown: false}} >
             <Tabs.Screen name="VPN"/>
@@ -11,3 +12,11 @@ export default function TabLayout() {
         </Tabs> 
     );
 }
+
+/*export default function TabLayout() {
+    return(
+        <SafeAreaView>
+            <Subscription />
+        </SafeAreaView>
+    );
+}*/

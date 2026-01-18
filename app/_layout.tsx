@@ -1,16 +1,15 @@
-import 'react-native-reanimated';
-
 import { Stack } from 'expo-router';
+import 'react-native-reanimated';
 
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
 export default function RootLayout() {
-
+  
   return (
-      <Stack>
+    <Stack>
         <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
-      </Stack>
+    </Stack>
   );
 }

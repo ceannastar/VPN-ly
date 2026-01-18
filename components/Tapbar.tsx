@@ -59,80 +59,90 @@ const Tapbar = ({ state, descriptors, navigation }) =>
         };
 
     return (
-    <View style={styles.tapbar}>
-      {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
-        const label =
-          options.tabBarLabel !== undefined
-            ? options.tabBarLabel
-            : options.title !== undefined
-              ? options.title
-              : route.name;
+    <View style={styles.bottom}>
+      <View style={styles.tapbar}>
+        {state.routes.map((route, index) => {
+          const { options } = descriptors[route.key];
+          const label =
+            options.tabBarLabel !== undefined
+              ? options.tabBarLabel
+              : options.title !== undefined
+                ? options.title
+                : route.name;
 
-       
+        
 
-        const isFocused = state.index === index;
+          const isFocused = state.index === index;
 
-        const onPress = () => {
-          const event = navigation.emit({
-            type: 'tabPress',
-            target: route.key,
-            canPreventDefault: true,
-          });
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
 
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name, route.params);
-          }
-        };
-
-        const onLongPress = () => {
-          navigation.emit({
-            type: 'tabLongPress',
-            target: route.key,
-          });
-        };
-
-        return (
-          <PlatformPressable
-            key={route.key}
-            style={styles.tapBarItems}
-            href={buildHref(route.name, route.params)}
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarButtonTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-          >
-            {
-              icons[route.name]({
-                fill: isFocused ? colors.primary : colors.text
-              })
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name, route.params);
             }
-            <Text style={{ color: isFocused ? colors.primary : colors.text }}>
-              {label}
-            </Text>
-          </PlatformPressable>
-        );
-      })}
+          };
+
+          const onLongPress = () => {
+            navigation.emit({
+              type: 'tabLongPress',
+              target: route.key,
+            });
+          };
+
+          return (
+            <PlatformPressable
+              key={route.key}
+              style={styles.tapBarItems}
+              href={buildHref(route.name, route.params)}
+              accessibilityState={isFocused ? { selected: true } : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarButtonTestID}
+              onPress={onPress}
+              onLongPress={onLongPress}
+            >
+              {
+                icons[route.name]({
+                  fill: isFocused ? colors.primary : colors.text
+                })
+              }
+              <Text style={{ color: isFocused ? colors.primary : colors.text }}>
+                {label}
+              </Text>
+            </PlatformPressable>
+          );
+        })}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    tapbar: {
+    bottom: {
         position: 'absolute',
         bottom: 25,
-        width: '85%', 
+        width: '100%', 
         height: 90, 
-        borderRadius: 20, 
-        borderWidth: 2, 
-        borderColor: 'green', 
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 25,
-        marginHorizontal: 27,
+    },
+
+    tapbar: {
+      width: '85%',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: 25,
+      borderWidth: 2,
+      borderRadius: 20,
+      borderColor: 'green',
     },
 
     tapBarItems: {
