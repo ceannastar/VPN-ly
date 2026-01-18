@@ -1,0 +1,50 @@
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
+
+import LottieView from "lottie-react-native";
+
+export default function Control()
+{
+    return(
+        <View style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{position: 'absolute',width: '100%', height: '20%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', top: 0, zIndex: 1}}>
+                <Text style={{fontSize: 25, fontWeight: 'bold'}}>Fastest Location</Text>
+                <Text style={{fontSize:  40, fontWeight: 'bold', color: 'green'}}>Niderlands</Text>
+            </View>
+            <ImageBackground source={require('./world.png')} resizeMode="cover" style={{position: 'fixed', width: '100%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: 1, bottom: 50}}>
+                <LottieView
+                    source={require("./connection.json")}
+                    style={{width: "50%", height: "50%", marginBottom: 'auto'}}
+                    autoPlay
+                    loop
+                    />
+            </ImageBackground>
+            <View  style={{position: 'absolute',width: '100%', height: '20%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', bottom: 200, zIndex: 1,gap: 25}}>
+                <View style={{width: '100%', height: '20%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 5}}>
+                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>Disconnected</Text>
+                    <Text style={{fontSize: 15}}>Basic services</Text>
+                </View>
+                <View style={{width: '100%', borderBottomColor: 'green', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
+                <Text style={{fontSize: 12, textAlign: 'center', fontWeight: 'bold'}}>By using this app you agree to our terms and condition</Text>
+                <View style={style.ad}>
+                    <Text style={{fontSize: 20, fontWeight: 'bold', color: 'green'}}>Upgrade To Pro</Text>
+                    <Text style={{fontSize: 12, textAlign: 'center'}}>You can take advantage of features such as 24/7 support</Text>
+                </View>
+            </View>
+        </View>
+    );
+}
+
+const style = StyleSheet.create({
+    ad: {
+        width: '60%',
+        display: 'flex', 
+        flexDirection: 'column', 
+        height: 100, 
+        borderWidth: 1, 
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+        borderColor: 'green'
+    }
+})
